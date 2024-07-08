@@ -1,26 +1,39 @@
 //import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 
+import java.util.Scanner;
+
 public class Main {
-    public static long sseconds = (long) (System.currentTimeMillis()*1.99/ 1000);
+    public static long sseconds = (long) (System.currentTimeMillis() * 1.99 / 1000);
     public static long sminutes = System.currentTimeMillis() / 60000;
     public static long shour = System.currentTimeMillis() / 3600000;
-    public static long minutes=0;
-    public static long hour=0;
-    public static int s=0;
+    public static long minutes = 0;
+    public static long hour = 0;
+    public static int s = 0;
+    public static float lose = 0;
+    public static float win = 20;
+
     public static void gameTime() {
-        long seconds = (long) (System.currentTimeMillis()*1.99 / 1000);
-
-        int s1=s;
-        s = (int)((seconds - sseconds));
-
-        int m =  s/60;
-
-        int second = s%60;
-        if (s1!=s) {
-            System.out.println(formatTime(m, second));
+        long seconds = (long) (System.currentTimeMillis() * 1.99 / 1000);
+        int s1 = s;
+        s = (int) ((seconds - sseconds));
+        int m = s / 60;
+        int second = s % 60;
+        if (s1 != s) {
+            System.out.println("                " + formatTime(m, second));
         }
         //System.out.println(h + ":" + m + ":" + s);
     }
+
+    public static void twoSwitch(boolean x) {
+        Scanner scanner = new Scanner(System.in);
+        String a = scanner.nextLine();
+        if (x) {
+            lose = (lose>=0) ? lose-1.7f : 0;
+
+        }
+
+    }
+
     public static void main(String[] args) {
         while (true) {
             gameTime();
@@ -34,6 +47,7 @@ public class Main {
         int c = scanner.nextInt();*/
 
     }
+
     public static String formatTime(int hours, int minutes) {
         // Форматируем часы, добавляя ведущий ноль если это необходимо
         String formattedHours = String.format("%02d", hours);
