@@ -19,24 +19,36 @@ public class Main {
         int m = s / 60;
         int second = s % 60;
         if (s1 != s) {
-            System.out.println("                " + formatTime(m, second));
+            System.out.println("lose: " + lose + " " + "win: " + win + "    " + formatTime(m, second)+"                                       ");
         }
-        //System.out.println(h + ":" + m + ":" + s);
+
     }
 
-    public static void twoSwitch(boolean x) {
-        Scanner scanner = new Scanner(System.in);
-        String a = scanner.nextLine();
+    public static boolean twoSwitch(boolean x) {
         if (x) {
-            lose = (lose>=0) ? lose-1.7f : 0;
-
+            long seconds = (long) (System.currentTimeMillis() * 1.99 / 1000);
+            int s1 = s;
+            s = (int) ((seconds - sseconds));
+            if (s1 != s)
+            {
+                lose = (lose > 0) ? lose - 1.7f : 0;
+                win = (win > 0) ? win - 1.7f : 0;
+            }
         }
+        return false;
+
 
     }
 
     public static void main(String[] args) {
         while (true) {
-            gameTime();
+            Scanner scanner = new Scanner(System.in);
+            boolean a = scanner.nextBoolean();
+            int b = scanner.nextInt();
+            for(int i = 0; i<=b; i++){
+                gameTime();
+                twoSwitch(a);
+            }
         }
         /*Scanner scanner = new Scanner(System.in);
         System.out.println("слайдер");
